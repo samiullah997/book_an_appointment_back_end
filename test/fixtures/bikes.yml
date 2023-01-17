@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  bike_image: MyString
+  bike_type: MyString
+  description: MyString
+  brand: MyString
+  daily_rate: MyString
+
+two:
+  name: MyString
+  bike_image: MyString
+  bike_type: MyString
+  description: MyString
+  brand: MyString
+  daily_rate: MyString
