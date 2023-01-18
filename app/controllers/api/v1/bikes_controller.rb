@@ -37,10 +37,10 @@ class Api::V1::BikesController < ApplicationController
   def destroy
     @bike = Bike.find(params[:id])
     if @bike.destroy
-      render json: { message: "Bike deleted successfully" }, status: :no_content
-      else
+      render json: { message: 'Bike deleted successfully' }, status: :no_content
+    else
       render json: @bike.errors, status: :unprocessable_entity
-      end
+    end
   end
 
   private
