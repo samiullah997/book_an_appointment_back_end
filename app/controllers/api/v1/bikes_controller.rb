@@ -1,4 +1,4 @@
-class BikesController < ApplicationController
+class Api::V1::BikesController < ApplicationController
   before_action :set_bike, only: %i[show update destroy]
 
   # GET /bikes
@@ -35,7 +35,12 @@ class BikesController < ApplicationController
 
   # DELETE /bikes/1
   def destroy
-    @bike.destroy
+    @bike = Bike.find(params[:id])
+    if @bike.destroy
+      render json: { message: "Bike deleted successfully" }, status: :no_content
+      else
+      render json: @bike.errors, status: :unprocessable_entity
+      end
   end
 
   private
