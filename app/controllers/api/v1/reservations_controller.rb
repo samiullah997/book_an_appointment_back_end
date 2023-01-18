@@ -1,4 +1,4 @@
-class ReservationsController < ApplicationController
+class Api::V1::ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[show update destroy]
 
   # GET /reservations
@@ -26,7 +26,12 @@ class ReservationsController < ApplicationController
 
   # DELETE /reservations/1
   def destroy
-    @reservation.destroy
+    @reservation = Reservation.find(params[:id])
+    if @reservation.destroy
+      render json: { message: 'Reservation deleted successfully' }, status: :no_content
+    else
+      render json: @reservation.errors, status: :unprocessable_entity
+    end
   end
 
   private
@@ -38,6 +43,6 @@ class ReservationsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def reservation_params
-    params.require(:reservation).permit(:bike_id, :user_id, :reservation_date, :due_date)
+    params.require(:reservation).permit(:bike_id, :user_id, :reserve, :date)
   end
 end
