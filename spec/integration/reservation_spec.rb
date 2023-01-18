@@ -1,9 +1,7 @@
 require 'swagger_helper'
 
 describe 'Reservation API' do
-
   path '/api/v1/reservations' do
-
     post 'Creates a reservation' do
       tags 'Reservations'
       consumes 'application/json', 'application/xml'
@@ -16,7 +14,7 @@ describe 'Reservation API' do
           bike_id: { type: :integer },
           user_id: { type: :integer }
         },
-        required: [ 'id', 'reserve', 'date', 'bike_id', 'user_id' ]
+        required: %w[id reserve date bike_id user_id]
       }
 
       response '201', 'reservation created' do
@@ -32,22 +30,21 @@ describe 'Reservation API' do
   end
 
   path '/api/v1/reservations/{id}' do
-
     get 'Retrieves a reservation' do
       tags 'Reservation'
       produces 'application/json', 'application/xml'
-      parameter name: :id, :in => :path, :type => :string
+      parameter name: :id, in: :path, type: :string
 
       response '200', 'name found' do
         schema type: :object,
-          properties: {
-            id: { type: :integer },
-            reserve: { type: :boolean },
-            date: { type: :string },
-            bike_id: { type: :integer },
-            user_id: { type: :integer }
-        },
-        required: [ 'id', 'reserve', 'date', 'bike_id', 'user_id' ]
+               properties: {
+                 id: { type: :integer },
+                 reserve: { type: :boolean },
+                 date: { type: :string },
+                 bike_id: { type: :integer },
+                 user_id: { type: :integer }
+               },
+               required: %w[id reserve date bike_id user_id]
 
         let(:id) { Reservation.create(reserve: true, date: '2023-01-18', bike_id: 6, user_id: 1).id }
         run_test!
