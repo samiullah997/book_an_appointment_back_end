@@ -1,0 +1,385 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/bikes":
+    post:
+      summary: Creates a bike
+      tags:
+      - Bikes
+      parameters: []
+      responses:
+        '201':
+          description: Bike created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+                bike_image:
+                  type: string
+                bike_type:
+                  type: string
+                description:
+                  type: string
+                brand:
+                  type: string
+                daily_rate:
+                  type: string
+                user_id:
+                  type: integer
+              required:
+              - id
+              - name
+              - bike_image
+              - bike_type
+              - description
+              - brand
+              - daily_rate
+              - user_id
+          application/xml:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+                bike_image:
+                  type: string
+                bike_type:
+                  type: string
+                description:
+                  type: string
+                brand:
+                  type: string
+                daily_rate:
+                  type: string
+                user_id:
+                  type: integer
+              required:
+              - id
+              - name
+              - bike_image
+              - bike_type
+              - description
+              - brand
+              - daily_rate
+              - user_id
+  "/api/v1/bikes/{id}":
+    get:
+      summary: Retrieves a bike
+      tags:
+      - Bikes
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: name found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  bike_image:
+                    type: string
+                  bike_type:
+                    type: string
+                  description:
+                    type: string
+                  brand:
+                    type: string
+                  daily_rate:
+                    type: string
+                  user_id:
+                    type: integer
+                required:
+                - id
+                - name
+                - bike_image
+                - bike_type
+                - description
+                - brand
+                - daily_rate
+                - user_id
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  bike_image:
+                    type: string
+                  bike_type:
+                    type: string
+                  description:
+                    type: string
+                  brand:
+                    type: string
+                  daily_rate:
+                    type: string
+                  user_id:
+                    type: integer
+                required:
+                - id
+                - name
+                - bike_image
+                - bike_type
+                - description
+                - brand
+                - daily_rate
+                - user_id
+        '404':
+          description: bike not found
+  "/api/v1/reservations":
+    post:
+      summary: Creates a reservation
+      tags:
+      - Reservations
+      parameters: []
+      responses:
+        '201':
+          description: reservation created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                reserve:
+                  type: boolean
+                date:
+                  type: string
+                bike_id:
+                  type: integer
+                user_id:
+                  type: integer
+              required:
+              - id
+              - reserve
+              - date
+              - bike_id
+              - user_id
+          application/xml:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                reserve:
+                  type: boolean
+                date:
+                  type: string
+                bike_id:
+                  type: integer
+                user_id:
+                  type: integer
+              required:
+              - id
+              - reserve
+              - date
+              - bike_id
+              - user_id
+  "/api/v1/reservations/{id}":
+    get:
+      summary: Retrieves a reservation
+      tags:
+      - Reservation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: name found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  reserve:
+                    type: boolean
+                  date:
+                    type: string
+                  bike_id:
+                    type: integer
+                  user_id:
+                    type: integer
+                required:
+                - id
+                - reserve
+                - date
+                - bike_id
+                - user_id
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  reserve:
+                    type: boolean
+                  date:
+                    type: string
+                  bike_id:
+                    type: integer
+                  user_id:
+                    type: integer
+                required:
+                - id
+                - reserve
+                - date
+                - bike_id
+                - user_id
+        '404':
+          description: reservation not found
+  "/api/v1/users":
+    post:
+      summary: Creates a user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: User created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                email:
+                  type: string
+                name:
+                  type: string
+                username:
+                  type: string
+                encrypted_password:
+                  type: string
+                image:
+                  type: string
+              required:
+              - id
+              - email
+              - name
+              - username
+              - encrypted_password
+          application/xml:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                email:
+                  type: string
+                name:
+                  type: string
+                username:
+                  type: string
+                encrypted_password:
+                  type: string
+                image:
+                  type: string
+              required:
+              - id
+              - email
+              - name
+              - username
+              - encrypted_password
+  "/api/v1/users/{id}":
+    get:
+      summary: Retrieves a user
+      tags:
+      - User
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: name found
+          content:
+            application/json:
+              schema:
+                type: object
+                roperties:
+                  id:
+                    type: integer
+                  email:
+                    type: string
+                  name:
+                    type: string
+                  username:
+                    type: string
+                  encrypted_password:
+                    type: string
+                  image:
+                    type: string
+                required:
+                - id
+                - email
+                - name
+                - username
+                - encrypted_password
+            application/xml:
+              schema:
+                type: object
+                roperties:
+                  id:
+                    type: integer
+                  email:
+                    type: string
+                  name:
+                    type: string
+                  username:
+                    type: string
+                  encrypted_password:
+                    type: string
+                  image:
+                    type: string
+                required:
+                - id
+                - email
+                - name
+                - username
+                - encrypted_password
+        '404':
+          description: user not found
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
