@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Bike.create(name: "AlusineDA", bike_image: "https://imgd.aeplcdn.com/1280x720/n/cw/ec/43482/sp-125-right-front-three-quarte
+r-2.jpeg?isig=0&q=80", bike_type: "HONDA", description: "This Description", brand: "This Brand", daily_rate: "2000");
+Bike.create(name: "Alusin", bike_image: "https://imgd.aeplcdn.com/1280x720/n/cw/ec/43482/sp-125-right-front-three-quarte
+r-2.jpeg?isig=0&q=80", bike_type: "HOND", description: "Tescription", brand: "This rand", daily_rate: "2000");
+Bike.create(name: "AlusineDA", bike_image: "https://imgd.aeplcdn.com/1280x720/n/cw/ec/43482/sp-125-right-front-three-quarte
+r-2.jpeg?isig=0&q=80", bike_type: "HONDA", description: "This Description", brand: "This Brand", daily_rate: "2000");
+Bike.create(name: "AlusinA", bike_image: "https://imgd.aeplcdn.com/1280x720/n/cw/ec/43482/sp-125-right-front-three-quarte
+r-2.jpeg?isig=0&q=80", bike_type: "ONDA", description: "scription", brand: "Thisrand", daily_rate: "2000");
+Bike.create(name: "AlusDA", bike_image: "https://imgd.aeplcdn.com/1280x720/n/cw/ec/43482/sp-125-right-front-three-quarte
+r-2.jpeg?isig=0&q=80", bike_type: "HODA", description: "Thiription", brand: "Thirand", daily_rate: "2000");
+Bike.create(name: "AlusineDA", bike_image: "https://imgd.aeplcdn.com/1280x720/n/cw/ec/43482/sp-125-right-front-three-quarte
+r-2.jpeg?isig=0&q=80", bike_type: "HONDA", description: "This Description", brand: "This Brand", daily_rate: "2000");
+Bike.create(name: "AlusiA", bike_image: "https://imgd.aeplcdn.com/1280x720/n/cw/ec/43482/sp-125-right-front-three-quarte
+r-2.jpeg?isig=0&q=80", bike_type: "HNDA", description: "Tption", brand: "This Brand", daily_rate: "2000");
+
