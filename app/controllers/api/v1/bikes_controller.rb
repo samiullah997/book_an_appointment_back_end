@@ -15,10 +15,10 @@ class Api::V1::BikesController < ApplicationController
 
   # POST /bikes
   def create
-    @bike = Bike.new(bike_params)
+    @bike = Bike.create(bike_params)
 
-    if @bike.save
-      render json: @bike, status: :created, location: @bike
+    if @bike.save!
+      render json: @bike
     else
       render json: @bike.errors, status: :unprocessable_entity
     end
@@ -52,6 +52,6 @@ class Api::V1::BikesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def bike_params
-    params.require(:bike).permit(:name, :bike_image, :bike_type, :description, :brand, :daily_rate)
+    params.require(:bike).permit(:name, :bike_image, :bike_type, :description, :brand, :daily_rate, :user_id)
   end
 end

@@ -6,5 +6,5 @@ class Bike < ApplicationRecord
   validates :description, presence: true
   validates :brand, presence: true
   validates :bike_type, presence: true
-  validates :daily_rate, presence: true, numericality: { greater_than: 0 }
+  validates :daily_rate, presence: true
 end
